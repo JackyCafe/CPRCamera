@@ -1,3 +1,4 @@
+import os
 import time
 
 from PySide6.QtCore import QThread
@@ -44,7 +45,7 @@ class Camera(QThread):
         if self.connect:
             self.running = True  # 啟動讀取狀態
             timestr = time.strftime("%Y%m%d-%H%M%S")
-            self.filename = 'cpr' + timestr + '.avi'
+            self.filename = '../medias/cpr' + timestr + '.avi'
             self.out = cv2.VideoWriter(self.filename, self.fourcc, 20.0, (800, 600))
 
     def stop(self):

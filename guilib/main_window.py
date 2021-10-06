@@ -19,6 +19,8 @@ class MainWindow(QMainWindow, Ui_Form):
         self.startBtn.clicked.connect(self.startVideo)
         self.stopBtn.clicked.connect(self.stopVideo)
 
+        self.Exit.clicked.connect(self.exit)
+
     @Slot(Image)
     def set_image(self,camera_image):
         image = QImage(camera_image, camera_image.shape[1], camera_image.shape[0],  camera_image.strides[0], QImage.Format_BGR888)
@@ -43,4 +45,5 @@ class MainWindow(QMainWindow, Ui_Form):
             self.startBtn.setEnabled(True)
         print("stopVideo",self.ProcessCam.connect)
 
-
+    def exit(self):
+        self.close()

@@ -61,6 +61,19 @@
     <string> 結束錄影</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="Exit">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>100</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>結束程式</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

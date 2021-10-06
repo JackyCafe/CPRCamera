@@ -30,6 +30,9 @@ class Ui_Form(object):
         self.stopBtn = QPushButton(Form)
         self.stopBtn.setObjectName(u"stopBtn")
         self.stopBtn.setGeometry(QRect(860, 50, 100, 50))
+        self.Exit = QPushButton(Form)
+        self.Exit.setObjectName(u"Exit")
+        self.Exit.setGeometry(QRect(860, 100, 100, 50))
 
         self.retranslateUi(Form)
 
@@ -38,8 +41,9 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.image_label.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.image_label.setText(QCoreApplication.translate("Form", u" ", None))
         self.startBtn.setText(QCoreApplication.translate("Form", u"\u958b\u59cb\u9304\u5f71", None))
         self.stopBtn.setText(QCoreApplication.translate("Form", u" \u7d50\u675f\u9304\u5f71", None))
+        self.Exit.setText(QCoreApplication.translate("Form", u"\u7d50\u675f\u7a0b\u5f0f", None))
     # retranslateUi
 
