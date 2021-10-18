@@ -8,9 +8,10 @@ from guilib.signal_container import SignalContainer
 
 
 class Camera(QThread):
-    def __init__(self):
+    def __init__(self,num_camera):
         super(Camera, self).__init__()
-        self.cap = cv2.VideoCapture(0)
+        self.num_camera = num_camera
+        self.cap = cv2.VideoCapture(num_camera)
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 800)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 600)
         self.rawdata = SignalContainer()
@@ -45,7 +46,16 @@ class Camera(QThread):
         if self.connect:
             self.running = True  # 啟動讀取狀態
             timestr = time.strftime("%Y%m%d-%H%M%S")
-            self.filename = '../medias/cpr' + timestr + '.avi'
+            if self.num_camera == 0:
+                self.filename = '../medias/x_cpr' + timestr + '.avi'
+
+            if self.num_camera == 2:
+                self.filename = '../medias/y_cpr' + timestr + '.avi'
+
+            if self.num_camera == 4:
+                self.filename = '../medias/z_cpr' + timestr + '.avi'
+
+
             self.out = cv2.VideoWriter(self.filename, self.fourcc, 20.0, (800, 600))
 
     def stop(self):
@@ -60,3 +70,5 @@ class Camera(QThread):
         if self.connect:
             self.running = False  # 關閉讀取狀態
             time.sleep(1)
+
+
